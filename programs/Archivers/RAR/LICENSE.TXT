@@ -1,0 +1,39 @@
+
+                 LICENSE TO USE AND DISTRIBUTE RAR
+
+   RAR archiver is shareware, this means:
+
+   1. All copyrights to RAR are exclusively owned by the author
+      - Eugene Roshal.
+
+   2. Anyone may use this software during a test period of 40
+      days.  Following this test period of 40 days or less, if
+      you wish to continue to use RAR, you MUST register.
+
+   3. RAR may be freely distributed, provided the distribution
+      package is not modified.  No person or company may charge
+      a fee for the distribution of RAR without written permission
+      from the copyright holder.
+
+   4. To register you must complete the registration form and send
+      it, with registration fee, to one of the authorized
+      registration sites, see RAR_BBS.TXT.
+
+   5. RAR ARCHIVER IS DISTRIBUTED "AS IS".  NO WARRANTY OF ANY
+      KIND IS EXPRESSED OR IMPLIED.  YOU USE AT YOUR OWN RISK.
+      THE AUTHOR WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS
+      OF PROFITS OR ANY OTHER KIND OF LOSS WHILE USING OR MISUSING
+      THIS SOFTWARE.
+
+   6. Installing and using RAR signifies acceptance of these terms
+      and conditions of the license.
+
+   7. If you don't agree with terms of the license you must remove
+      RAR files from your storage devices and cease to use the
+      product.
+
+      Thank you for your interest in RAR.
+
+
+                                            Eugene Roshal
+

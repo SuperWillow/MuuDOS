@@ -1,0 +1,154 @@
+
+  RAR Archiver. Commands and switches overview.
+
+  Version 1.51
+
+  More detailed information may be found in the user manual, RAR.DOC
+
+
+   Command line options
+
+
+  Usage:     RAR <command> -<switches> <archive>
+                 <@listfiles...> <files...>
+
+   Commands:
+
+  a             Add files to archive
+  f             Freshen files in archive
+  x             eXtract files with full path
+  d             Delete files from archive
+  r             Repair archive
+  p             Print file to stdout
+  t             Test archive files
+  en            ENter to archive
+  k             locK archive
+  u             Update files in archive
+  m[f]          Move to archive [Files only]
+  e             Extract files to current directory
+  v             Verbosely list contents of archive
+  l             List contents of archive
+  s             Convert archive to SFX
+  c             add Comment to archive
+  cf            add Comment to Files
+  cw            Write Comment from archive to file
+
+   Switches:
+
+  -r            Recurse subdirectories
+  -o+           Overwrite existing files
+  -bw           Black & White (monochrome) mode
+  -s            create Solid archive
+  -std          STDout mode
+  -f            Freshen files
+  -c-           disable Comments display
+  -ep           Exclude Paths from names
+  -cfg-         disable read ConFiGuration
+  -y            assume Yes on all queries
+  -o-           don't Overwrite existing files
+  -col          COLor mode
+  -sfx          create SFX archives
+  -b            enable Backup archives
+  -u            Update files
+  -ed           don't add Empty Directories
+  -ep1          Exclude base dir from names
+  -x<file>      eXclude specified File
+  -x@<list>     eXclude files in specified List file
+  -v            create Volumes with size autodetection
+  -v<size>      create Volumes:           Size=<size>*1000
+  -p<password>  set Password
+  -w<path>      assign Work directory
+  -m<0..5>      set compression level (0-store...3-default...5-maximal)
+  -e<s,h,a,r>   set file Exclude attributes
+  -av           put Authenticity Verification (registered versions only)
+
+
+   Interactive mode
+
+
+  Usage:
+
+         RAR
+
+  Options:
+
+   Alt-J  DOS shell
+   Alt-D  Select Drive
+   Alt-C  Toggle between Color and monochrome mode
+   Alt-M  Select compression Method
+   Alt-P  Set Password
+   Alt-W  Set Work directory for temporary files
+   Alt-S  Save Setup
+
+
+  Directory functions:
+
+
+   F1       Help information
+
+   F2       Add file(s) to archive, if archive does not exist
+            it will be created
+
+   F3       View a file (if external viewer is not set,
+            internal viewer will be called)
+
+   F4       Freshen files in archive - only recently changed files
+            will be added instead of their old copies in archive
+
+   F5       Create archive volumes
+
+   F6       Add files not already in the archive and update those
+            files changed since they were packed to the archive
+
+   F7       Move file(s) to archive
+
+   F8       Try to repair broken archive
+
+   F9       Set up / Save options
+
+   F10      Quit RAR. You can either press ESC.
+
+   Alt-F2   Create solid archive.
+
+   Alt-F3   View file (with internal viewer).
+
+   Alt-F5   Create SFX-volumes.
+
+   Alt-F6   Create solid archive volumes.
+
+   Alt-F7   Create solid SFX-volumes.
+
+
+  Archive functions:
+
+
+   F1       Help information
+
+   F2       Test archive
+
+   F3       View a file (if external viewer is not set,
+            internal viewer will be called)
+
+   F4       Extract files from archive with directory
+            structure
+
+   F5       Add comment to archive
+
+   F6       Extract file(s) to current directory
+
+   F7       Make SFX-archive
+
+   F8       Delete file(s) from archive
+
+   F9       Set up / Save options
+
+   F10      Return from archive. You can either press ESC.
+
+   Alt-F3   View a file (with internal viewer)
+
+   Alt-F4   Extract file(s) to alternate path
+
+   Alt-F5   Add file comment(s)
+
+   Alt-F7   Lock archive to prevent modifications
+

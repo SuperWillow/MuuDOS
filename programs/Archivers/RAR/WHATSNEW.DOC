@@ -1,0 +1,81 @@
+
+   RAR Archiver. What's new in latest version
+
+
+   Version 1.51
+
+   1. Sound effects are added with option Sound in configuration.
+
+   2. Now CRC errors could be logged to file RAR.LOG - option Log
+   errors to file in configuration. This feature is available only
+   in registered version.
+
+   3. Pressing Alt-J in full-screen mode while archive processing
+   and in menus starts DOS shell. This feature is available only
+   in registered version.
+
+   4. Commands 'C' and 'CF' could not be processed with
+   archives created by RAR versions prior to 1.50.
+
+
+   Version 1.50.2 beta
+
+   1. Fixed bug in command 'x' with switches -f -u.
+
+   2. Interface advances:
+      - clicking mouse key at top of the screen causes to
+        change current disk;
+      - Ctrl-\ causes entering root directory (changing
+   current directory to root).
+
+
+   Version 1.50.1 beta
+
+   1. Packing when insufficient memory bug fixed.
+
+
+   Version 1.50 beta
+
+   1. In order to get high reliability and compatibility with
+different file and operating systems, the RAR archive file
+format was changed (see TECHNOTE.DOC for details).
+
+   RAR 1.50 is compatible with older releases and can handle
+archives created with previous versions, with the exception
+of minor functions - repair, create SFX and adding authenticity
+verification).
+
+   Archives created with RAR 1.50 cannot be handled by older
+versions of RAR.
+
+   Due to memory limitations, the functionality of backwards
+compatibility, will be reduced to a minimum.
+
+   2. Compression speed has improved in the "most compressive"
+mode (when using the switch -m5).
+
+   3. Password encryption algorithm improved.  Files encrypted
+in archives with old RAR versions are also supported.
+
+   4. Authenticity verification feature changed.  When the
+archive is created with -av full integrity checking is
+performed.
+
+   5. User interface improved.
+
+   6. Pressing Control-Break causes return to RAR when used
+in full-screen mode, not exit to DOS as previously.
+
+   7. String search implemented in internal viewer (F7).
+
+   8. Edit function set extended for string enter.
+
+   9. Option "After command ..." removed from Configuration.
+
+   10. Option "Stdout mode" added to configuration.
+
+   11. Switch -vs removed as the identical combination
+"-v -sfx" exists.
+
+   12. Volume size can now be entered in kilobytes (not only
+in thousands of bytes). Add symbol 'k' for it.

@@ -1,0 +1,119 @@
+
+       Sites and BBS (Bulletin Board System) handling RAR Support
+
+   The latest version of RAR and support conferences are available on
+sites and BBS's listed below.  Most of them are FIDONET-nodes, so
+you can request the latest version of RAR via file request using
+the magic name of 'RAR'.
+
+
+World-Wide distribution headquarters:
+
+FINLAND
+-------
+ Postal address                  Ordering information
+
+ RAR HQ                          Fax         : +358 (0) 8731962
+ PL 97                           Voice       : +358 (0) 2983307
+ 02101 Espoo                     BBS (14.4)  : +358 (0) 5062622
+ Finland
+
+ FidoNet: 2:220/22
+        : 2:220/20
+
+
+
+USA, Canada & South America
+---------------------------
+ Postal address                  Ordering information
+
+ BMT Micro                       Fax         : +1 (910) 350-2937
+ 452 Horn Rd                     Voice       : +1 (910) 791-7052
+ Wilmington, NC  28403           Orders ONLY : +1 (800) 414-4268
+                                 BBS (14.4)  : +1 (910) 350-8061
+
+ Internet: thomas.bradford@bmtmicro.com
+ FidoNet : 1:3628/11
+
+ Orders accepted by Voice phone, fax, mail or BBS
+ Credit cards :  Visa, Mastercard, Discover acceptance
+
+
+
+GERMANY, AUSTRIA & SWITZERLAND
+-----------------------------
+ Postal adress                   Ordering information
+
+      ÚÄÄ¿
+ mediacom³                       Fax         : +49 (0)6151 151436
+      ÀÄÄÙ                       Hotline     : +49 (0)6151 295900
+ Abteilung RAR Support           Orders ONLY : +49 (0)6151 151529
+ Karlstraáe 59                   BBS (14.4)  : +49 (0)6151 26422
+ 64285 Darmstadt                 BBS (ISDN)  : +49 (0)6151 282622
+ Germany
+
+ FidoNet : 2:24/100
+
+ Orders accepted by Voice phone, fax or mail.
+
+
+HOLLAND
+-------
+ Postal address                  Ordering information
+
+ The Owl's Nest                  Fax         : +31-2155-26527
+ Postbus 227                     Voice       : +31-2155-28631
+ 3760 AE  Soest                  BBS (28k8)  : +31-2155-10921, +31-2155-12571
+ Netherlands                                   +31-2155-28096/ +31-2155-23219
+
+ Internet: postmaster@owlsnest.nl
+ FidoNet : 2:512/39
+
+ Orders accepted by Voice phone, fax, mail or BBS
+ Credit cards :  Visa
+
+
+Finland, Suomi
+--------------
+    Helsinki            INFO-SHARE BBS               Kari Pietila
+    358-0-5062622       9600+ V32B V42B CM           2:220/22.900@fidonet
+
+Yritys  :  KP Tietoliikenne Oy                       fax: +358-0-873 1962
+osoite     PL 263
+           01301  VANTAA
+           FINLAND
+
+ Orders accepted by fax, mail or BBS
+ Credit cards :  Visa, American Express
+
+
+
+Author direct contact site:
+
+
+RUSSIA
+------
+ Postal address
+
+ Andrey Spasibozhko              Fax         : +7-3512-654920
+ for Eugene Roshal               BBS (14.4)  : +7-3512-656522
+ a/ja 12687
+ Chelyabinsk 454014
+ RUSSIA
+
+ Internet: as@hq.icb.chel.su
+           andrey@vybor.chel.su
+ FidoNet : 2:5010/23
+
+
+     To SysOp
+
+   Place RAR SFX archive on your BBS if you want, but do not
+distribute RAR registration keys and cracks.
+
+     How to become RAR Support Site
+
+   If you want to be an RAR Support Site and there is none in
+your region - write to the world-wide distribution center in Finland.
+
+
