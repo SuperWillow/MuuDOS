@@ -770,7 +770,6 @@ const I18N = {
     stepMountSel:'Что монтировать (выборочно)', hintMountSel:'Чтобы большой диск стартовал быстрее, можно не грузить тяжёлые папки. Сними галочки — эти папки/файлы не попадут на диск при «Пуск» (в репозитории они остаются и не удаляются).', btnMountSelLoad:'Показать содержимое диска C:',
     stepManifest:'Манифест .gitdos.json', hintManifest:'Необязательный файл .gitdos.json в корне диска: имя диска (в заголовок), что запускать (run) и скорость CPU (cycles). С ним диск стартует сразу в нужную программу.', btnManifest:'📦 Создать шаблон .gitdos.json',
     stepCatalog:'Каталог программ (INSTALL)', hintCatalog:'Откуда DOS-команда INSTALL берёт программы: owner/repo или owner/repo/подпапка. По умолчанию — каталог проекта GitDOS.',
-    stepAi:'Ассистент (Claude)', hintAi:'Команда AI в DOS спрашивает Claude. Нужен API-ключ Anthropic. ⚠️ Ключ хранится только в браузере, запросы идут напрямую на api.anthropic.com (ключ виден в браузере — для личного использования) и платные.', lblAiKey:'API-ключ Anthropic', lblAiModel:'Модель', lblAiRun:'⚠️ Авто-выполнение: ассистент сам запускает предложенные команды в DOS (для автоматизации). Без галочки — команда кладётся в поле ввода на твоё подтверждение.',
     stepSysEdit:'Загрузочные файлы', hintSysEdit:'Правка AUTOEXEC.BAT и CONFIG.SYS прямо в браузере — что выполняется при старте диска и драйверы DOS.', btnSysEdit2:'⚙️ Редактировать AUTOEXEC.BAT / CONFIG.SYS',
     mSysEdit:'⚙️ AUTOEXEC.BAT и CONFIG.SYS', sysHint:'Загрузочные файлы диска C:. Изменения сохраняются в репозиторий (нужен токен) или на запущенный диск. Применяются при следующем «Пуск».', btnSysReload:'↻ Перечитать', btnSysSave:'💾 Сохранить',
     mScreen:'🖥️ Экран и DOSBox', lblCycles:'Скорость CPU (cycles)', hintCycles:'Применяется при следующем «Пуск». Если в .gitdos.json задан свой cycles — он важнее.', btnMute:'🔊 Звук: вкл',
@@ -813,7 +812,6 @@ const I18N = {
     stepMountSel:'What to mount (selective)', hintMountSel:'To make a large disk start faster, you can skip heavy folders. Uncheck them — those folders/files won’t be loaded on Run (they stay in the repository and are not deleted).', btnMountSelLoad:'Show disk C: contents',
     stepManifest:'.gitdos.json manifest', hintManifest:'Optional .gitdos.json in the disk root: disk name (title bar), what to run (run) and CPU speed (cycles). With it the disk boots straight into the program.', btnManifest:'📦 Create .gitdos.json template',
     stepCatalog:'Program catalog (INSTALL)', hintCatalog:'Where the DOS INSTALL command takes programs from: owner/repo or owner/repo/subpath. Default — the GitDOS project catalog.',
-    stepAi:'Assistant (Claude)', hintAi:'The AI command in DOS asks Claude. Needs an Anthropic API key. ⚠️ The key is stored only in the browser, requests go directly to api.anthropic.com (key is visible in the browser — for personal use) and are billed.', lblAiKey:'Anthropic API key', lblAiModel:'Model', lblAiRun:'⚠️ Auto-run: the assistant runs its suggested commands in DOS itself (automation). Without it — the command goes to the input field for your confirmation.',
     stepSysEdit:'Boot files', hintSysEdit:'Edit AUTOEXEC.BAT and CONFIG.SYS in the browser — what runs at disk startup and DOS drivers.', btnSysEdit2:'⚙️ Edit AUTOEXEC.BAT / CONFIG.SYS',
     mSysEdit:'⚙️ AUTOEXEC.BAT & CONFIG.SYS', sysHint:'Boot files of disk C:. Changes are saved to the repository (token needed) or to the running disk. Applied on the next Run.', btnSysReload:'↻ Reload', btnSysSave:'💾 Save',
     mScreen:'🖥️ Screen & DOSBox', lblCycles:'CPU speed (cycles)', hintCycles:'Applied on the next Run. If .gitdos.json sets its own cycles, that wins.', btnMute:'🔊 Sound: on',
@@ -1026,23 +1024,6 @@ async function doUninstall(id, onDisk){
   let conf=await readMarker('CONFIG.SYS'); if(conf==null) conf=''; const cr=removeBlock(conf, id);
   if(cr.newText!==conf){ try{ await ci.fsWriteFile('CONFIG.SYS', enc(cr.newText)); }catch(_){} }
   log('🖥️ Удалено '+id+': '+removed+' файлов из C:\\PROGRAMS\\'+dir); return { removed, dir }; }
-// ---------- ассистент (Claude API) ----------
-const AI_SYSTEM = 'You are a concise assistant embedded in GitDOS, a DOS (DOSBox) environment in the browser where disk C: is a GitHub repository (auto-saved to GitHub). The user asks from a DOS prompt. Answer in plain ASCII English only (the DOS screen is CP437 - no Cyrillic or Unicode). Be brief (about 12 short lines max).\n'
-  + 'You can take actions, each on its own line:\n'
-  + '  RUN: <dos command>        - run a DOS command\n'
-  + '  INSTALL: <program id>     - install a program from the catalog\n'
-  + '  UNINSTALL: <program id>   - remove an installed program\n'
-  + 'Use INSTALL:/UNINSTALL: (not RUN: INSTALL). The list of installable programs (with [installed] marks) is given in the user context. GitDOS also has DOS helper commands: GITDOS (git), UPLOADS (upload files).';
-async function askAssistant(prompt, context){
-  const a=cfg.ai||{}; const key=a.key; if(!key) throw new Error('no API key');
-  const model=(a.model||'claude-haiku-4-5-20251001').trim();
-  const userMsg = context ? (context+'\n\nUser: '+String(prompt)) : String(prompt);
-  const r=await fetch('https://api.anthropic.com/v1/messages', { method:'POST',
-    headers:{ 'x-api-key':key, 'anthropic-version':'2023-06-01', 'anthropic-dangerous-direct-browser-access':'true', 'content-type':'application/json' },
-    body: JSON.stringify({ model, max_tokens:600, system:AI_SYSTEM, messages:[{role:'user', content:userMsg}] }) });
-  if(!r.ok) throw new Error('Claude '+r.status+' '+(await r.text()).slice(0,160));
-  const j=await r.json(); const txt=(j.content||[]).filter(c=>c.type==='text').map(c=>c.text).join('\n');
-  return txt||'(empty response)';
 }
 function aiLines(answer, kw){ const out=[], re=new RegExp('^\\s*'+kw+':\\s*(.+)$','i'); for(const l of String(answer).split('\n')){ const m=l.match(re); if(m) out.push(m[1].trim()); } return out; }
 function aiText(prompt, answer, autorun){
