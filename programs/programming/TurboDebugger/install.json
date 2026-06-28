@@ -1,9 +1,9 @@
 {
-  "name": "GitDOS Hello (test)",
-  "id": "hello",
-  "dir": "HELLO",
-  "run": "HELLO.BAT",
+  "name": "Turbo Debugger",
+  "id": "td",
+  "dir": "TD",
+  "run": "TD.EXE",
   "path": true,
-  "version": "1.0",
-  "desc": "Тестовая программа: проверяет, что INSTALL/UNINSTALL работают."
+  "version": "3.1",
+  "desc": "Turbo Debugger (TD) is a machine-level debugger for DOS executables, intended mainly for debugging Borland Turbo Pascal—and later Turbo C—programs, sold by Borland."
 }
