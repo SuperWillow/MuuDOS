@@ -224,7 +224,7 @@
 
 <div class="dd-win">
   <div class="dd-topbar"><span class="ico">🐙</span><h1>GitDOS</h1>
-    <span class="dd-ver"><span data-i18n="tagline">Твой DOS живёт в репозитории</span> · сборка 111</span>
+    <span class="dd-ver"><span data-i18n="tagline">Твой DOS живёт в репозитории</span> · сборка 112</span>
     <span id="apiLimit" class="dd-apilimit" title=""></span>
     <span style="margin-left:8px;display:flex;gap:4px">
       <button id="langRu" class="dd-btn" type="button" style="min-height:0;padding:1px 8px">RU</button>
@@ -1149,7 +1149,7 @@ async function createRepo(){
 // ---------- базовые шаблоны системных файлов диска ----------
 const AUTOEXEC_TPL =
   '@ECHO OFF\r\n'+
-  'PATH C:\\;C:\\COMMANDS\r\n';
+  'PATH C:\\\r\n';
 const CONFIG_TPL =
   'DOS=HIGH,UMB\r\n'+
   'FILES=40\r\n'+
@@ -1807,7 +1807,7 @@ function dosRunLines(run){ let p=String(run||'').trim().replace(/\//g,'\\').repl
 // единственный рабочий вариант js-dos: монтируем корень bundle как C: и выполняем AUTOEXEC.BAT
 function makeConf(m){ const cy=safeCycles(m&&m.cycles);
   let s='[sdl]\nautolock=false\n[cpu]\ncycles='+cy+'\n[autoexec]\n'+
-    '@mount c .\n@c:\n@PATH C:\\;C:\\COMMANDS\n@CLS\n@TYPE GITDOS.NFO\n@TYPE GITDOS.DAT\n@CALL AUTOEXEC.BAT\n';
+    '@mount c .\n@c:\n@CLS\n@TYPE GITDOS.NFO\n@TYPE GITDOS.DAT\n@CALL AUTOEXEC.BAT\n@IF EXIST C:\\COMMANDS\\SETPATH.BAT CALL C:\\COMMANDS\\SETPATH.BAT\n';
   if(m && m.run) s+=dosRunLines(m.run);
   return s; }
 async function boot(bundleUrl){ log('Запускаю DOSBox…');
@@ -1898,6 +1898,7 @@ async function mount(opts){ opts=opts||{}; const ref=opts.ref||null;
     const fileCount = bundleFiles.length + pendingLoad.length;
     bundleFiles.push({path:'GITDOS.DAT', data:enc(statusLines(fileCount, 'mounted'))});
     // командные .BAT и их данные — в папке C:\COMMANDS (подпапка -> pendingLoad), в PATH; в репо не синкаются
+    pendingLoad.push({path:'COMMANDS/SETPATH.BAT', data:enc('PATH=%PATH%;C:\\COMMANDS\r\n')});  // добавляет COMMANDS в PATH после AUTOEXEC
     pendingLoad.push({path:'COMMANDS/GITDOS.BAT', data:enc(GITDOS_BAT)});
     pendingLoad.push({path:'COMMANDS/GTDISKS.TXT', data:enc(diskListText())});
     pendingLoad.push({path:'COMMANDS/GTPROFS.TXT', data:enc(profListText())});
