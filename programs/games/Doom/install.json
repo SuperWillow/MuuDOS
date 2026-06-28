@@ -1,9 +1,9 @@
 {
-  "name": "GitDOS Hello (test)",
-  "id": "hello",
-  "dir": "HELLO",
-  "run": "HELLO.BAT",
-  "path": true,
-  "version": "1.0",
-  "desc": "Тестовая программа: проверяет, что INSTALL/UNINSTALL работают."
+  "name": "DOOM",
+  "id": "doom",
+  "dir": "DOOM",
+  "run": "doom.exe",
+  "path": false,
+  "version": "1.9",
+  "desc": "Doom is a 1993 first-person shooter game developed and published by id Software for MS-DOS."
 }
