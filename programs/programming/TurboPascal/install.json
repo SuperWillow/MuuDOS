@@ -1,9 +1,9 @@
 {
-  "name": "GitDOS Hello (test)",
-  "id": "hello",
-  "dir": "HELLO",
-  "run": "HELLO.BAT",
-  "path": true,
-  "version": "1.0",
-  "desc": "Тестовая программа: проверяет, что INSTALL/UNINSTALL работают."
+  "name": "Turbo Pascal",
+  "id": "tp",
+  "dir": "TP",
+  "run": "TURBO.EXE",
+  "path": false,
+  "version": "7.0",
+  "desc": "Turbo Pascal is a software development system that includes a compiler and an integrated development environment (IDE) for the programming language Pascal."
 }
