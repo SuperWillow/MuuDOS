@@ -1,2 +1,0 @@
-@ECHO OFF
-PATH C:\
